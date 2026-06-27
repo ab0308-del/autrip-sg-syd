@@ -13,7 +13,12 @@
   }
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
-    background:var(--bg);color:var(--ink);line-height:1.7;padding-bottom:80px}
+    background:var(--bg);color:var(--ink);line-height:1.7;padding-bottom:80px;position:relative}
+  body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+    background:
+      radial-gradient(420px 320px at 12% 18%,rgba(244,114,182,.10),transparent 70%),
+      radial-gradient(460px 360px at 88% 30%,rgba(14,165,233,.10),transparent 70%),
+      radial-gradient(380px 300px at 50% 92%,rgba(245,158,11,.08),transparent 70%)}
   a{color:inherit}
   .wrap{max-width:760px;margin:0 auto;padding:0 16px}
 
@@ -24,6 +29,8 @@
   header .dates{font-size:15px;opacity:.95;font-weight:500}
   header .meta{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
   header .chip{background:rgba(255,255,255,.2);padding:4px 12px;border-radius:999px;font-size:12.5px}
+  .hero-art{display:block;width:100%;max-width:760px;margin:16px auto -26px;
+    border-radius:18px 18px 0 0;filter:drop-shadow(0 6px 14px rgba(15,23,42,.12))}
 
   /* Nav */
   nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
@@ -101,6 +108,74 @@
     <span class="chip">👩‍👧 2 人同行</span>
     <span class="chip">🏨 4 間飯店</span>
   </div>
+
+  <!-- 旅行插畫 hero -->
+  <svg class="hero-art" viewBox="0 0 760 240" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMax meet" aria-hidden="true">
+    <defs>
+      <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#fff6d6"/><stop offset="1" stop-color="#ffd6e8"/>
+      </linearGradient>
+      <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#7dd3fc"/><stop offset="1" stop-color="#38bdf8"/>
+      </linearGradient>
+    </defs>
+    <!-- 天空圓盤 -->
+    <circle cx="120" cy="70" r="40" fill="#ffe39a"/>
+    <circle cx="120" cy="70" r="40" fill="#fff3c4" opacity=".5"/>
+    <!-- 雲朵 -->
+    <g fill="#ffffff" opacity=".9">
+      <ellipse cx="250" cy="55" rx="34" ry="15"/><ellipse cx="275" cy="50" rx="22" ry="13"/>
+      <ellipse cx="600" cy="42" rx="30" ry="13"/><ellipse cx="625" cy="48" rx="20" ry="11"/>
+    </g>
+    <!-- 飛機與虛線航線 -->
+    <path d="M180 95 Q380 30 600 95" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-dasharray="3 9" stroke-linecap="round" opacity=".85"/>
+    <g transform="translate(596 88) rotate(28)">
+      <path d="M0 0 L26 5 L0 10 L6 5 Z" fill="#fff"/>
+      <path d="M9 5 L18 -7 M9 5 L18 17" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/>
+    </g>
+    <!-- 海 -->
+    <path d="M0 185 Q190 165 380 185 T760 185 V240 H0 Z" fill="url(#sea)"/>
+    <path d="M0 185 Q190 165 380 185 T760 185" fill="none" stroke="#fff" stroke-width="2" opacity=".5"/>
+    <g stroke="#ffffff" stroke-width="2" opacity=".55" stroke-linecap="round">
+      <path d="M60 205 q10 -7 20 0 t20 0"/><path d="M640 212 q10 -7 20 0 t20 0"/>
+    </g>
+
+    <!-- 新加坡：魚尾獅 -->
+    <g transform="translate(150 120)">
+      <path d="M0 65 Q-8 30 8 18 Q4 6 16 4 Q14 -6 24 -4 Q26 -12 34 -6 Q44 -10 44 2 Q56 4 50 16 Q60 26 48 34 L40 34 Q44 22 34 22 Q30 30 22 26 L22 65 Z" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+      <circle cx="34" cy="6" r="2" fill="#475569"/>
+      <path d="M2 50 q14 -10 28 -2" stroke="#bae6fd" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </g>
+    <!-- 超級樹 -->
+    <g transform="translate(232 118)" stroke="#86efac" fill="none" stroke-width="3" stroke-linecap="round">
+      <path d="M0 65 V8"/><path d="M0 22 q-14 -6 -18 -20 M0 30 q14 -4 20 -18 M0 42 q-12 -2 -20 -14"/>
+      <circle cx="0" cy="6" r="5" fill="#86efac" stroke="none"/>
+    </g>
+
+    <!-- × 中央愛心 -->
+    <g transform="translate(380 150)">
+      <path d="M0 12 C-9 0 -22 6 -16 18 C-12 26 0 32 0 32 C0 32 12 26 16 18 C22 6 9 0 0 12 Z" fill="#fb7185"/>
+    </g>
+
+    <!-- 雪梨：歌劇院 -->
+    <g transform="translate(470 132)">
+      <path d="M0 53 Q6 18 30 30 Q22 6 44 26 Q40 4 62 30 Q60 14 78 34 L78 53 Z" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+      <path d="M0 53 H82" stroke="#cbd5e1" stroke-width="2"/>
+    </g>
+    <!-- 港灣大橋 -->
+    <g transform="translate(560 120)" stroke="#94a3b8" fill="none" stroke-width="3" stroke-linecap="round">
+      <path d="M0 65 V40 M120 65 V40"/>
+      <path d="M0 40 H120"/>
+      <path d="M0 40 Q60 -8 120 40"/>
+      <g stroke-width="1.6"><path d="M14 40 V18"/><path d="M34 40 V8"/><path d="M60 40 V3"/><path d="M86 40 V8"/><path d="M106 40 V18"/></g>
+    </g>
+
+    <!-- 飄帶愛心點綴 -->
+    <g fill="#fff" opacity=".75">
+      <path d="M330 70 c-4 -5 -10 -2 -7 4 c2 4 7 7 7 7 c0 0 5 -3 7 -7 c3 -6 -3 -9 -7 -4 Z"/>
+      <path d="M440 95 c-3 -4 -8 -1 -5 3 c1 3 5 5 5 5 c0 0 4 -2 5 -5 c2 -4 -2 -7 -5 -3 Z"/>
+    </g>
+  </svg>
 </header>
 
 <nav><div class="inner">
