@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0ea5e9">
+<title>🌏 新加坡 × 雪梨 母女之旅 ｜ 2026/7/8–7/21</title>
+<style>
+  :root{
+    --bg:#f5f7fa; --card:#ffffff; --ink:#1e293b; --sub:#64748b;
+    --sg:#e11d48; --au:#0ea5e9; --gold:#f59e0b; --green:#10b981;
+    --line:#e2e8f0; --shadow:0 2px 12px rgba(15,23,42,.06);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;padding-bottom:80px}
+  a{color:inherit}
+  .wrap{max-width:760px;margin:0 auto;padding:0 16px}
+
+  /* Header */
+  header{background:linear-gradient(135deg,#e11d48 0%,#7c3aed 50%,#0ea5e9 100%);
+    color:#fff;padding:34px 16px 26px;text-align:center}
+  header h1{font-size:24px;letter-spacing:1px;margin-bottom:6px}
+  header .dates{font-size:15px;opacity:.95;font-weight:500}
+  header .meta{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  header .chip{background:rgba(255,255,255,.2);padding:4px 12px;border-radius:999px;font-size:12.5px}
+
+  /* Nav */
+  nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap}
+  nav .inner{display:flex;gap:4px;padding:8px 12px;max-width:760px;margin:0 auto}
+  nav button{border:0;background:transparent;font:inherit;font-size:14px;color:var(--sub);
+    padding:7px 14px;border-radius:999px;cursor:pointer;font-weight:600;transition:.15s}
+  nav button.active{background:var(--ink);color:#fff}
+
+  section{padding:22px 0 6px}
+  .sec-title{font-size:19px;font-weight:800;margin:4px 0 14px;display:flex;align-items:center;gap:8px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+    padding:16px 18px;margin-bottom:14px;box-shadow:var(--shadow)}
+  .card h3{font-size:16px;margin-bottom:6px}
+  .muted{color:var(--sub);font-size:13.5px}
+  .row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .k{color:var(--sub);font-size:13.5px;flex:0 0 auto}
+  .row .v{font-weight:600;text-align:right}
+  .pill{display:inline-block;font-size:11.5px;font-weight:700;padding:2px 9px;border-radius:999px;color:#fff}
+  .p-sg{background:var(--sg)} .p-au{background:var(--au)} .p-gold{background:var(--gold)}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:520px){.grid{grid-template-columns:1fr}}
+
+  /* tabs panels */
+  .panel{display:none}
+  .panel.show{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* Day cards */
+  .day{background:var(--card);border:1px solid var(--line);border-radius:16px;margin-bottom:12px;
+    overflow:hidden;box-shadow:var(--shadow)}
+  .day-head{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;user-select:none}
+  .day-head .num{flex:0 0 auto;width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+    font-weight:800;color:#fff;font-size:13px;text-align:center;line-height:1.1}
+  .num.sg{background:linear-gradient(135deg,#e11d48,#fb7185)}
+  .num.au{background:linear-gradient(135deg,#0284c7,#38bdf8)}
+  .day-head .ttl{flex:1}
+  .day-head .ttl .d{font-size:12px;color:var(--sub)}
+  .day-head .ttl .t{font-weight:700;font-size:15.5px}
+  .day-head .arr{color:var(--sub);transition:.2s}
+  .day.open .arr{transform:rotate(90deg)}
+  .day-body{display:none;padding:0 16px 16px}
+  .day.open .day-body{display:block}
+  .tl{list-style:none;border-left:2px solid var(--line);margin-left:8px;padding-left:16px}
+  .tl li{position:relative;padding:6px 0}
+  .tl li::before{content:"";position:absolute;left:-22px;top:13px;width:9px;height:9px;border-radius:50%;
+    background:var(--au);border:2px solid #fff;box-shadow:0 0 0 1px var(--line)}
+  .tl li .time{font-weight:700;font-size:13px;color:var(--au);margin-right:6px}
+  .note{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:10px 12px;margin-top:10px;font-size:13.5px}
+  .note b{color:#c2410c}
+  .hl{background:#ecfeff;border:1px solid #a5f3fc;border-radius:12px;padding:10px 12px;margin-top:10px;font-size:13.5px}
+  .hl b{color:#0369a1}
+
+  ul.clean{list-style:none}
+  ul.clean li{padding:5px 0;border-bottom:1px dashed var(--line);display:flex;justify-content:space-between;gap:10px}
+  ul.clean li:last-child{border-bottom:0}
+  .tag{font-size:11px;color:var(--sub);background:#f1f5f9;padding:1px 8px;border-radius:6px;white-space:nowrap}
+
+  .btn{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;border:0;
+    font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:10px;cursor:pointer;text-decoration:none}
+  .vcard{border-left:4px solid var(--au)}
+  .footer{text-align:center;color:var(--sub);font-size:12px;padding:30px 16px 10px}
+  details summary{cursor:pointer;font-weight:600}
+  .tdiff{background:linear-gradient(135deg,#0ea5e9,#6366f1);color:#fff;border-radius:14px;padding:14px 16px;margin-bottom:14px}
+  .tdiff b{font-size:17px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🌏 新加坡 🇸🇬 × 雪梨 🇦🇺 母女之旅</h1>
+  <div class="dates">2026 / 7 / 8（三）～ 7 / 21（二）｜ 共 14 天</div>
+  <div class="meta">
+    <span class="chip">✈️ Scoot 酷航</span>
+    <span class="chip">👩‍👧 2 人同行</span>
+    <span class="chip">🏨 4 間飯店</span>
+  </div>
+</header>
+
+<nav><div class="inner">
+  <button class="active" data-t="overview">總覽</button>
+  <button data-t="flights">航班</button>
+  <button data-t="hotels">住宿</button>
+  <button data-t="days">每日行程</button>
+  <button data-t="vouchers">憑證</button>
+  <button data-t="shop">伴手禮</button>
+  <button data-t="food">餐廳</button>
+  <button data-t="tips">注意事項</button>
+</div></nav>
+
+<div class="wrap">
+
+<!-- ============ 總覽 ============ -->
+<div class="panel show" id="overview">
+<section>
+  <div class="sec-title">📋 行程總覽</div>
+
+  <div class="tdiff">
+    🕐 <b>雪梨時差：比台灣 / 新加坡快 2 小時</b><br>
+    <span style="font-size:13px;opacity:.95">台灣 12:00 ＝ 雪梨 14:00。新加坡與台灣同時區（無時差）。抵澳當天記得把手錶／手機調快 2 小時。</span>
+  </div>
+
+  <div class="card">
+    <h3>🚀 快速重點</h3>
+    <div class="row"><span class="k">出發</span><span class="v">7/8 桃園 16:15 ✈ 新加坡 20:45</span></div>
+    <div class="row"><span class="k">轉場</span><span class="v">7/10 新加坡 ✈ 雪梨</span></div>
+    <div class="row"><span class="k">回程</span><span class="v">7/20 雪梨 ✈ 新加坡 ✈ 7/21 桃園</span></div>
+    <div class="row"><span class="k">新加坡</span><span class="v">7/8–7/10（2 晚）</span></div>
+    <div class="row"><span class="k">雪梨</span><span class="v">7/10–7/20（10 晚）</span></div>
+  </div>
+
+  <div class="card">
+    <h3>⭐ 已確定的重要活動（務必準時）</h3>
+    <ul class="clean">
+      <li><span>🎆 達令港煙火</span><span class="tag">7/11 20:30</span></li>
+      <li><span>🌄 藍山一日遊集合</span><span class="tag">7/12 07:25</span></li>
+      <li><span>🍽️ Sydney Tower Buffet</span><span class="tag">7/13 中午</span></li>
+      <li><span>🌉 雪梨港灣大橋攀登 Summit</span><span class="tag">7/15 14:15</span></li>
+      <li><span>🐨 WILD Wombat &amp; Kangaroo 一日遊</span><span class="tag">7/16 10:00</span></li>
+      <li><span>🎭 歌劇院《The Merry Widow》</span><span class="tag">7/19 14:00</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>📍 行程動線一覽</h3>
+    <p class="muted">桃園 → 新加坡（2 晚 · Bugis）→ 雪梨（Mascot → 市區 Song Hotel → 岩石區 Harbour Hotel）→ 新加坡轉機 → 桃園</p>
+  </div>
+</section>
+</div>
+
+<!-- ============ 航班 ============ -->
+<div class="panel" id="flights">
+<section>
+  <div class="sec-title">✈️ 機票資訊</div>
+  <p class="muted" style="margin-bottom:12px">搭機前快速確認 · 全程 Scoot 酷航。時間為當地時間。</p>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <h3>🇹🇼 台北 → 🇸🇬 新加坡</h3><span class="pill p-sg">去程</span>
+    </div>
+    <div class="row"><span class="k">日期 / 航班</span><span class="v">7/8（三）· TR867</span></div>
+    <div class="row"><span class="k">桃園 T1 起飛</span><span class="v">16:15</span></div>
+    <div class="row"><span class="k">樟宜抵達</span><span class="v">20:45</span></div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <h3>🇸🇬 新加坡 → 🇦🇺 雪梨</h3><span class="pill p-au">轉場</span>
+    </div>
+    <div class="row"><span class="k">日期 / 航班</span><span class="v">7/10（五）· TR014</span></div>
+    <div class="row"><span class="k">樟宜起飛</span><span class="v">09:45</span></div>
+    <div class="row"><span class="k">雪梨抵達</span><span class="v">19:20（當地）</span></div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <h3>🇦🇺 雪梨 → 🇸🇬 新加坡</h3><span class="pill p-au">回程①</span>
+    </div>
+    <div class="row"><span class="k">日期 / 航班</span><span class="v">7/20（一）· TR015</span></div>
+    <div class="row"><span class="k">雪梨起飛</span><span class="v">20:35（當地）</span></div>
+    <div class="row"><span class="k">樟宜抵達</span><span class="v">7/21 03:05</span></div>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <h3>🇸🇬 新加坡 → 🇹🇼 台北</h3><span class="pill p-sg">回程②</span>
+    </div>
+    <div class="row"><span class="k">日期 / 航班</span><span class="v">7/21（二）· TR892</span></div>
+    <div class="row"><span class="k">樟宜起飛</span><span class="v">07:00</span></div>
+    <div class="row"><span class="k">桃園抵達</span><span class="v">11:45</span></div>
+  </div>
+  <div class="note"><b>提醒：</b>7/21 在新加坡為過境轉機（03:05 抵達、07:00 再起飛），時間很短，建議下機後直接前往轉機區、確認登機門，不要出境。</div>
+</section>
+</div>
+
+<!-- ============ 住宿 ============ -->
+<div class="panel" id="hotels">
+<section>
+  <div class="sec-title">🏨 住宿資訊</div>
+  <p class="muted" style="margin-bottom:12px">抵達後立刻確認 · 共 4 間飯店。</p>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between"><h3>① Hotel Waterloo Singapore</h3><span class="pill p-sg">SG</span></div>
+    <p class="muted">Handwritten Collection</p>
+    <div class="row"><span class="k">入住</span><span class="v">7/8 – 7/10（2 晚）</span></div>
+    <div class="row"><span class="k">地址</span><span class="v">78 Waterloo Street, Singapore 187970</span></div>
+    <a class="btn" style="margin-top:10px" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Hotel+Waterloo+Singapore+78+Waterloo+Street">🗺️ 開啟地圖</a>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between"><h3>② Meriton Suites Mascot Central</h3><span class="pill p-au">AU</span></div>
+    <div class="row"><span class="k">入住</span><span class="v">7/10 – 7/13（3 晚）</span></div>
+    <div class="row"><span class="k">地址</span><span class="v">8 Jackson Drive, Mascot NSW 2020</span></div>
+    <a class="btn" style="margin-top:10px" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Meriton+Suites+Mascot+Central+8+Jackson+Drive">🗺️ 開啟地圖</a>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between"><h3>③ Song Hotel Sydney</h3><span class="pill p-au">AU</span></div>
+    <div class="row"><span class="k">入住</span><span class="v">7/13 – 7/18（5 晚）</span></div>
+    <div class="row"><span class="k">地址</span><span class="v">5/11 Wentworth Avenue, Sydney NSW 2000</span></div>
+    <a class="btn" style="margin-top:10px" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Song+Hotel+Sydney+11+Wentworth+Avenue">🗺️ 開啟地圖</a>
+  </div>
+
+  <div class="card">
+    <div style="display:flex;justify-content:space-between"><h3>④ Sydney Harbour Hotel</h3><span class="pill p-au">AU</span></div>
+    <div class="row"><span class="k">入住</span><span class="v">7/18 – 7/20（2 晚）</span></div>
+    <div class="row"><span class="k">地址</span><span class="v">55 George Street, The Rocks NSW 2000</span></div>
+    <a class="btn" style="margin-top:10px" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Sydney+Harbour+Hotel+55+George+Street+The+Rocks">🗺️ 開啟地圖</a>
+  </div>
+</section>
+</div>
+
+<!-- ============ 每日行程 ============ -->
+<div class="panel" id="days">
+<section>
+  <div class="sec-title">📅 每日行程</div>
+  <p class="muted" style="margin-bottom:12px">點任一天展開／收合。雪梨時間比台灣快 2 小時。</p>
+  <div id="dayList"></div>
+</section>
+</div>
+
+<!-- ============ 憑證 ============ -->
+<div class="panel" id="vouchers">
+<section>
+  <div class="sec-title">🎫 電子憑證重點</div>
+  <div class="note" style="margin-bottom:14px">為保護個資，本頁僅列出憑證<b>關鍵資訊</b>。原始 PDF（含 QR Code）請從你電腦的 <b>「憑證」資料夾</b>出示給工作人員：BridgeClimb、Klook 藍山、Featherdale 一日遊。出發前建議先各截圖一份存手機。</div>
+
+  <div class="card vcard">
+    <div style="display:flex;justify-content:space-between"><h3>🌉 雪梨港灣大橋攀登 BridgeClimb</h3><span class="pill p-au">7/15</span></div>
+    <div class="row"><span class="k">項目</span><span class="v">Summit Day Climb · 2 Adults</span></div>
+    <div class="row"><span class="k">日期 / 時間</span><span class="v">7/15（三）出發 14:15</span></div>
+    <div class="row"><span class="k">Reference</span><span class="v">2667190</span></div>
+    <div class="row"><span class="k">Booking Ref</span><span class="v">2781156</span></div>
+    <div class="row"><span class="k">領取 / 報到</span><span class="v">BridgeClimb Sydney（3 Cumberland St, The Rocks）</span></div>
+    <div class="hl"><b>對時：</b>請於 14:15 前抵達報到，建議提早 30 分到場換裝。</div>
+  </div>
+
+  <div class="card vcard">
+    <div style="display:flex;justify-content:space-between"><h3>🌄 藍山一日遊（Klook）</h3><span class="pill p-au">7/12</span></div>
+    <div class="row"><span class="k">項目</span><span class="v">藍山中型巴士一日遊 · 來回接送 · 2 人</span></div>
+    <div class="row"><span class="k">日期</span><span class="v">7/12（日）</span></div>
+    <div class="row"><span class="k">Booking ID</span><span class="v">FRV428602</span></div>
+    <div class="row"><span class="k">Voucher No.</span><span class="v">KLK4762840494</span></div>
+    <div class="row"><span class="k">上車 / 領取</span><span class="v">Rydges / Furama Darling Harbour<br>68 Harbour St, Haymarket（07:30–08:30 集合）</span></div>
+    <div class="row"><span class="k">回程下車</span><span class="v">Travelodge Wynyard（約 16:30）</span></div>
+    <div class="hl"><b>對時：</b>集合 <b>07:30–08:30</b>，務必準時；當地客服 +61 0451 840 318。建議搭船回達令港行程約 18:00 返抵雪梨。</div>
+  </div>
+
+  <div class="card vcard">
+    <div style="display:flex;justify-content:space-between"><h3>🐨 WILD Wombat &amp; Kangaroo 一日遊</h3><span class="pill p-au">7/16</span></div>
+    <div class="row"><span class="k">營運商</span><span class="v">Perfect Day Sydney（經 Agoda / Viator）</span></div>
+    <div class="row"><span class="k">日期 / 時間</span><span class="v">7/16（四）10:00 出發</span></div>
+    <div class="row"><span class="k">Booking Ref</span><span class="v">1415828335</span></div>
+    <div class="row"><span class="k">確認碼</span><span class="v">358367846 ／ 商品碼 ri169410</span></div>
+    <div class="row"><span class="k">集合點（擇一）</span><span class="v">① Thomas Sutcliffe Mort 銅像（36 Bridge St）<br>② St James Station（Hyde Park 旁）<br>③ Central Station Platform 1 上層</span></div>
+    <div class="hl"><b>對時：</b>出發前一天會收到平台訊息告知<b>確切上車時間</b>，請留意通知。含午晚餐與點心。客服 +61 450 703 654。</div>
+  </div>
+
+  <div class="card vcard">
+    <div style="display:flex;justify-content:space-between"><h3>🎭 歌劇院《The Merry Widow》</h3><span class="pill p-au">7/19</span></div>
+    <div class="row"><span class="k">場次</span><span class="v">7/19（日）14:00 入場 13:15</span></div>
+    <div class="row"><span class="k">座位</span><span class="v">Circle P15、P16</span></div>
+    <div class="row"><span class="k">購票</span><span class="v">Headout（Opera Sydney）</span></div>
+    <div class="hl"><b>對時：</b>建議 13:15 入場、散場約 17:00。憑 Headout App / Email QR 入場。</div>
+  </div>
+
+  <div class="card vcard">
+    <div style="display:flex;justify-content:space-between"><h3>🍽️ Sydney Tower Buffet</h3><span class="pill p-au">7/13</span></div>
+    <div class="row"><span class="k">時間</span><span class="v">7/13（一）中午（已預訂）</span></div>
+    <div class="row"><span class="k">領取</span><span class="v">Sydney Tower Eye 售票口出示訂位</span></div>
+  </div>
+</section>
+</div>
+
+<!-- ============ 伴手禮 ============ -->
+<div class="panel" id="shop">
+<section>
+  <div class="sec-title">🛍️ 推薦伴手禮清單</div>
+
+  <div class="hl" style="margin-bottom:14px">
+    <b>💡 Price Match 省錢術：</b>看到別家更便宜，可在 Chemist Warehouse / JB Hi-Fi / Harvey Norman / Officeworks 詢問
+    「<i>Hi, do you do price match?</i>」或「<i>Can you match this price?</i>」。保健品在 Chemist Warehouse 常有 Half Price / 買一送一。
+  </div>
+
+  <div class="card">
+    <h3>💊 保健食品（Chemist Warehouse 最划算）</h3>
+    <ul class="clean">
+      <li><span>Blackmores 系列</span><span class="tag">30–45 AUD</span></li>
+      <li><span>Swisse Ultiboost</span><span class="tag">25–40 AUD</span></li>
+      <li><span>Bio Island（兒童/孕婦保健）</span><span class="tag">18–30 AUD</span></li>
+      <li><span>Nature's Way</span><span class="tag">10–18 AUD</span></li>
+      <li><span>Lucas Papaw 萬用木瓜霜</span><span class="tag">8–20 AUD</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🍫 零食 / 餅乾（超市 Woolworths · Coles · Aldi）</h3>
+    <ul class="clean">
+      <li><span>Tim Tam 巧克力餅乾</span><span class="tag">2–5 AUD</span></li>
+      <li><span>Caramello Koala 無尾熊巧克力</span><span class="tag">0.8–1.5 AUD</span></li>
+      <li><span>Pods</span><span class="tag">3–5 AUD</span></li>
+      <li><span>Shapes 餅乾</span><span class="tag">2–4 AUD</span></li>
+    </ul>
+    <p class="muted" style="margin-top:6px">超市常見 Half Price / Buy 1 Get 1，可囤貨。</p>
+  </div>
+
+  <div class="card">
+    <h3>☕ 咖啡（澳洲特色）</h3>
+    <ul class="clean">
+      <li><span>Campos（Superior / Roma）</span><span class="tag">18–25 AUD</span></li>
+      <li><span>Single O</span><span class="tag">18–25 AUD</span></li>
+      <li><span>Pablo &amp; Rusty's</span><span class="tag">18–30 AUD</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>👕 服飾 / 衝浪品牌</h3>
+    <ul class="clean">
+      <li><span>UGG 雪靴</span><span class="tag">當地較便宜</span></li>
+      <li><span>Billabong · Rip Curl · Quiksilver</span><span class="tag">衝浪 T / 配件</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🛒 採買地點（住 Sydney Harbour Hotel 附近）</h3>
+    <ul class="clean">
+      <li>① Queen Victoria Building（QVB）</li>
+      <li>② Pitt Street Mall</li>
+      <li>③ World Square</li>
+      <li>④ Chemist Warehouse（保健品）</li>
+      <li>⑤ Woolworths（零食零嘴）</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<!-- ============ 餐廳 ============ -->
+<div class="panel" id="food">
+<section>
+  <div class="sec-title">🍴 推薦餐廳</div>
+
+  <div class="card">
+    <h3>🇸🇬 新加坡</h3>
+    <ul class="clean">
+      <li><span>亞坤 Ya Kun 咖椰吐司</span><span class="tag">早餐經典</span></li>
+      <li><span>天天海南雞飯（麥士威）</span><span class="tag">必吃</span></li>
+      <li><span>辣椒螃蟹 Chilli Crab</span><span class="tag">招牌</span></li>
+      <li><span>Bugis 周邊宵夜</span><span class="tag">Day 1</span></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🇦🇺 雪梨</h3>
+    <ul class="clean">
+      <li><span>Sydney Tower Buffet（高空自助）</span><span class="tag">7/13 已訂</span></li>
+      <li><span>達令港名店晚餐</span><span class="tag">7/11 煙火夜</span></li>
+      <li><span>歌劇院／環形碼頭港灣餐廳</span><span class="tag">7/19</span></li>
+      <li><span>唐人街（Chinatown）</span><span class="tag">7/13 晚</span></li>
+      <li><span>The Rocks 咖啡 / 早午餐</span><span class="tag">7/20</span></li>
+    </ul>
+  </div>
+  <div class="note"><b>提醒：</b>Sydney Tower Buffet、達令港人氣餐廳、歌劇院附近餐廳建議<b>提前線上訂位</b>，旺季與週末容易客滿。</div>
+</section>
+</div>
+
+<!-- ============ 注意事項 ============ -->
+<div class="panel" id="tips">
+<section>
+  <div class="sec-title">📌 注意事項 &amp; 實用資訊</div>
+
+  <div class="tdiff"><b>🕐 雪梨時差 +2 小時</b><br>
+  <span style="font-size:13px;opacity:.95">台灣／新加坡 = UTC+8；雪梨 = UTC+10。台灣中午 12:00 ＝ 雪梨 14:00。抵澳記得對時。</span></div>
+
+  <div class="card">
+    <h3>🧥 天氣 &amp; 穿著（雪梨冬天）</h3>
+    <ul class="clean">
+      <li><span>白天</span><span class="tag">16–19°C</span></li>
+      <li><span>夜晚 / 清晨</span><span class="tag">7–10°C</span></li>
+      <li><span>藍山（7/12）</span><span class="tag">更冷 2–6°C</span></li>
+    </ul>
+    <p class="muted" style="margin-top:6px">洋蔥式穿搭：保暖外套＋圍巾＋好走的鞋；早晚溫差大，藍山一日遊務必加件厚外套。</p>
+  </div>
+
+  <div class="card">
+    <h3>🚇 交通</h3>
+    <p class="muted">雪梨市區交通用 <b>Opal</b>（可感應信用卡 / 手機）；接駁與短程用 <b>Uber</b>。新加坡機場到飯店建議 Uber / Grab。</p>
+  </div>
+
+  <div class="card">
+    <h3>✅ 每日小提醒</h3>
+    <ul class="clean">
+      <li>7/8 抵新加坡 20:45 → Uber 進飯店、Bugis 散步宵夜</li>
+      <li>7/9 美食日，雞飯 / 辣椒蟹人多，可提早</li>
+      <li>7/10 06:30 起床、07:30 出發機場，問飯店早餐外帶</li>
+      <li><b>7/11 20:30</b> 達令港煙火，先卡位</li>
+      <li><b>7/12 07:25</b> 藍山集合（07:30–08:30 上車），早起、帶厚外套</li>
+      <li><b>7/13</b> 搬飯店＋Sydney Tower Buffet 中午</li>
+      <li><b>7/15 14:15</b> BridgeClimb，提早 30 分報到</li>
+      <li><b>7/16 10:00</b> Wombat 一日遊，留意前一天上車時間通知</li>
+      <li><b>7/19 13:15</b> 入場歌劇院，14:00 開演別遲到</li>
+      <li><b>7/20</b> 回飯店拿行李 → 機場，20:35 班機</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>💰 預算參考（已支出活動 / 飯店）</h3>
+    <p class="muted">行程與住宿合計約 <b>NT$ 141,929</b>（2 人）。其中歌劇院票 3,975、藍山 5,922、Tower Buffet 4,910、BridgeClimb 15,880、Wombat 一日遊 8,758；另含 4 間飯店。澳洲現場再準備 Opal / Uber / 餐費。</p>
+  </div>
+</section>
+</div>
+
+<div class="footer">
+  🧳 祝旅途平安順利 ·  資料整理自你的行程與憑證 · 2026 母女之旅<br>
+  <span style="opacity:.7">原始憑證 PDF 請保留在手機 / 電腦離線備份</span>
+</div>
+</div>
+
+<script>
+// 分頁切換
+const btns=document.querySelectorAll('nav button');
+const panels=document.querySelectorAll('.panel');
+btns.forEach(b=>b.addEventListener('click',()=>{
+  btns.forEach(x=>x.classList.remove('active'));
+  panels.forEach(p=>p.classList.remove('show'));
+  b.classList.add('active');
+  document.getElementById(b.dataset.t).classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+}));
+
+// 每日行程資料
+const days=[
+ {n:'Day 1',date:'7/8（三）',c:'sg',t:'✈️ 抵達新加坡',items:[
+   ['20:45','樟宜機場抵達'],['21:30','搭 Uber 前往飯店、Check in'],
+   ['晚上','Bugis 周邊散步、宵夜'],['','休息']],
+   note:'入境新加坡走自動通關 / 填 SG Arrival Card（出發前 3 天內線上填）。'},
+ {n:'Day 2',date:'7/9（四）',c:'sg',t:'🍜 新加坡美食一日遊',items:[
+   ['早餐','亞坤咖椰吐司'],['上午','小印度、阿拉伯街'],['中午','天天海南雞飯'],
+   ['下午','濱海灣花園、超級樹'],['傍晚','濱海灣金沙'],['晚上','超級樹燈光秀、辣椒螃蟹']],
+   hl:'超級樹燈光秀通常 19:45 / 20:45 兩場，可先確認當天時間卡位。'},
+ {n:'Day 3',date:'7/10（五）',c:'sg',t:'✈️ 飛往雪梨',items:[
+   ['06:30','起床（問飯店早餐外帶）'],['07:30','前往樟宜機場'],
+   ['09:45','TR014 起飛'],['19:20','抵達雪梨（當地）'],
+   ['晚上','Uber 進飯店、Woolworths 採買、晚餐、休息']],
+   note:'抵雪梨對時 +2 小時。入境澳洲需填 ABF 入境卡，肉類 / 蜂蜜 / 種子等食品務必申報。'},
+ {n:'Day 4',date:'7/11（六）',c:'au',t:'🎆 市區散步 + 達令港煙火',items:[
+   ['上午','海德公園、聖瑪麗主教座堂'],['中午','維多利亞女王大廈 QVB'],
+   ['下午','Pitt Street Mall、Apple Store'],['20:30','達令港晚餐 + 煙火 🎆'],['','回飯店休息']],
+   hl:'達令港煙火 20:30，建議 19:30 前到達卡好觀景位置。'},
+ {n:'Day 5',date:'7/12（日）',c:'au',t:'🌄 藍山一日遊',items:[
+   ['06:00','起床'],['06:30','出門'],['07:25','集合（07:30–08:30 上車）'],
+   ['白天','藍山國家公園、Three Sisters、Scenic World、Leura'],
+   ['','搭船回達令港'],['約18:00','返回雪梨']],
+   note:'憑證 Klook：Booking FRV428602。上車點 Rydges / Furama Darling Harbour（68 Harbour St）。藍山很冷，帶厚外套。'},
+ {n:'Day 6',date:'7/13（一）',c:'au',t:'🧳 搬飯店 + Tower Buffet',items:[
+   ['上午','退房 → 入住 Song Hotel Sydney、寄放行李'],
+   ['中午','Sydney Tower Eye + Tower Buffet（已訂）'],
+   ['下午','QVB、Hyde Park'],['晚上','雪梨唐人街']],
+   hl:'Sydney Tower Buffet 須先預訂，現場出示訂位。'},
+ {n:'Day 7',date:'7/14（二）',c:'au',t:'🏖️ 邦代海灘',items:[
+   ['上午','Bondi Beach 邦代海灘'],['下午','Bondi to Coogee 海岸步道']],
+   note:'海岸步道風大、無遮蔽，防曬 + 外套；走完約 2 小時。'},
+ {n:'Day 8',date:'7/15（三）',c:'au',t:'🌉 動物園 + 大橋攀登',items:[
+   ['上午','Taronga Zoo'],['14:15','Sydney Harbour BridgeClimb（Summit）']],
+   note:'BridgeClimb Ref 2667190，14:15 出發，提早 30 分到場換裝；不能帶相機 / 隨身物上橋。'},
+ {n:'Day 9',date:'7/16（四）',c:'au',t:'🐨 Wombat & Kangaroo 一日遊',items:[
+   ['10:00','Perfect Day Sydney 出發'],
+   ['目標','看袋熊 Wombat、無尾熊、袋鼠、澳洲野犬、塔斯馬尼亞惡魔']],
+   note:'憑證 Ref 1415828335。前一天會收到上車時間通知。集合點：Thomas Sutcliffe Mort 銅像 / St James / Central。含午晚餐。'},
+ {n:'Day 10',date:'7/17（五）',c:'au',t:'🛍️ 市區購物',items:[
+   ['全天','QVB、Pitt Street Mall、Apple Store、UNIQLO、MUJI']],
+   hl:'保健品到 Chemist Warehouse 比價，記得問 price match。'},
+ {n:'Day 11',date:'7/18（六）',c:'au',t:'🧳 搬飯店 + 岩石區',items:[
+   ['上午','退房 → 入住 Sydney Harbour Hotel'],
+   ['下午','岩石區 The Rocks、Circular Quay'],['晚上','港灣夜景']],
+   note:'週六 The Rocks 有週末市集，可逛手工藝伴手禮。'},
+ {n:'Day 12',date:'7/19（日）',c:'au',t:'🎭 雪梨歌劇院日',items:[
+   ['上午','The Rocks、Circular Quay、歌劇院拍照'],['中午','歌劇院附近午餐'],
+   ['13:15','入場'],['14:00','《The Merry Widow》(座位 Circle P15/P16)'],
+   ['約17:00','散場'],['傍晚','皇家植物園、Mrs Macquarie\'s Chair'],['晚上','港灣晚餐、歌劇院夜景']],
+   hl:'13:15 入場，14:00 準時開演，遲到須等中場才能入座。'},
+ {n:'Day 13',date:'7/20（一）',c:'au',t:'✈️ 雪梨 → 新加坡',items:[
+   ['上午','The Rocks 買伴手禮、咖啡'],['下午','回飯店拿行李 → 前往機場'],
+   ['20:35','TR015 起飛'],['7/21 03:05','抵達新加坡']],
+   note:'澳洲退稅 TRS：滿額可在機場辦理，需隨身攜帶商品 + 電子發票，預留時間。'},
+ {n:'Day 14',date:'7/21（二）',c:'sg',t:'✈️ 新加坡 → 台北 返家',items:[
+   ['過境','新加坡轉機（勿出境）'],['07:00','TR892 起飛'],['11:45','抵達桃園 ✅']],
+   note:'03:05 抵新加坡、07:00 再起飛，過境時間短，直接前往轉機區確認登機門。'}
+];
+
+const list=document.getElementById('dayList');
+days.forEach((d,i)=>{
+  const el=document.createElement('div');el.className='day';
+  let li=d.items.map(it=>`<li>${it[0]?`<span class="time">${it[0]}</span>`:''}${it[1]}</li>`).join('');
+  el.innerHTML=`
+    <div class="day-head">
+      <div class="num ${d.c}">${d.n.replace(' ','<br>')}</div>
+      <div class="ttl"><div class="d">${d.date}</div><div class="t">${d.t}</div></div>
+      <div class="arr">▶</div>
+    </div>
+    <div class="day-body">
+      <ul class="tl">${li}</ul>
+      ${d.hl?`<div class="hl"><b>重點：</b>${d.hl}</div>`:''}
+      ${d.note?`<div class="note"><b>注意：</b>${d.note}</div>`:''}
+    </div>`;
+  el.querySelector('.day-head').addEventListener('click',()=>el.classList.toggle('open'));
+  if(i===0)el.classList.add('open');
+  list.appendChild(el);
+});
+</script>
+</body>
+</html>
