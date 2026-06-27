@@ -92,6 +92,17 @@
   ul.clean li:last-child{border-bottom:0}
   .tag{font-size:11px;color:var(--sub);background:#f1f5f9;padding:1px 8px;border-radius:6px;white-space:nowrap}
 
+  ul.check{list-style:none}
+  ul.check li{padding:9px 4px 9px 34px;position:relative;cursor:pointer;border-bottom:1px dashed var(--line);
+    font-size:14.5px;user-select:none;transition:.12s}
+  ul.check li:last-child{border-bottom:0}
+  ul.check li::before{content:"";position:absolute;left:2px;top:50%;transform:translateY(-50%);
+    width:20px;height:20px;border:2px solid #cbd5e1;border-radius:6px;background:#fff;transition:.12s}
+  ul.check li.done{color:var(--sub);text-decoration:line-through}
+  ul.check li.done::before{background:var(--green);border-color:var(--green)}
+  ul.check li.done::after{content:"✓";position:absolute;left:7px;top:50%;transform:translateY(-50%);
+    color:#fff;font-size:13px;font-weight:900}
+
   .btn{display:inline-flex;align-items:center;gap:6px;background:var(--ink);color:#fff;border:0;
     font:inherit;font-size:13px;font-weight:600;padding:7px 14px;border-radius:10px;cursor:pointer;text-decoration:none}
   .vcard{border-left:4px solid var(--au)}
@@ -119,6 +130,7 @@
   <button class="active" data-t="overview">總覽</button>
   <button data-t="flights">航班</button>
   <button data-t="hotels">住宿</button>
+  <button data-t="pack">行前清單</button>
   <button data-t="days">每日行程</button>
   <button data-t="vouchers">憑證</button>
   <button data-t="shop">伴手禮</button>
@@ -246,6 +258,96 @@
     <div class="row"><span class="k">地址</span><span class="v">55 George Street, The Rocks NSW 2000</span></div>
     <a class="btn" style="margin-top:10px" target="_blank" href="https://www.google.com/maps/search/?api=1&query=Sydney+Harbour+Hotel+55+George+Street+The+Rocks">🗺️ 開啟地圖</a>
   </div>
+</section>
+</div>
+
+<!-- ============ 行前清單 ============ -->
+<div class="panel" id="pack">
+<section>
+  <div class="sec-title">🧳 行前準備清單</div>
+  <p class="muted" style="margin-bottom:12px">點項目可打勾，狀態會自動記住。出發前一項一項確認 ✅</p>
+
+  <div class="tdiff" style="background:linear-gradient(135deg,#6366f1,#0ea5e9)">
+    🔌 <b>雪梨電壓 & 插頭（重要）</b><br>
+    <span style="font-size:13px;opacity:.95">澳洲：<b>230V / 50Hz</b>，插座為 <b>I 型</b>（八字形三支扁腳）。<br>
+    新加坡：230V，插座為 <b>G 型</b>（英規三支方腳）。<br>
+    👉 兩國電壓相同但<b>插頭形狀不同</b>，務必帶一個<b>萬用轉接頭（含 I 型 & G 型）</b>；台灣電器多為 100–240V 寬電壓可直接用，但仍需轉接頭。電壓高的吹風機/電棒請確認支援 240V。</span>
+  </div>
+
+  <div class="card">
+    <h3>📄 證件 & 重要文件</h3>
+    <ul class="check" data-g="doc">
+      <li>護照（效期 6 個月以上）</li>
+      <li>澳洲電子簽證 ETA / 入境資料</li>
+      <li>新加坡入境卡 SG Arrival Card（出發前 3 天線上填）</li>
+      <li>機票 / 登機證（電子檔 + 截圖）</li>
+      <li>各項憑證 QR（BridgeClimb／藍山／Wombat／歌劇院）截圖存手機</li>
+      <li>飯店訂房確認</li>
+      <li>旅遊保險保單</li>
+      <li>信用卡（開通海外/感應）+ 少量澳幣現金</li>
+      <li>證件影本 / 大頭照備份</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🔌 3C & 電器</h3>
+    <ul class="check" data-g="elec">
+      <li>萬用轉接頭（含澳洲 I 型 + 新加坡 G 型）</li>
+      <li>行動電源（手提登機，勿托運）</li>
+      <li>手機 + 充電線</li>
+      <li>多孔 USB 充電器 / 延長線</li>
+      <li>相機 / 記憶卡 / 備用電池</li>
+      <li>當地 eSIM / 網卡（或開漫遊）</li>
+      <li>耳機</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🧥 衣物（雪梨冬天 7–19°C，洋蔥式穿搭）</h3>
+    <ul class="check" data-g="cloth">
+      <li>保暖外套 / 羽絨外套（早晚很冷）</li>
+      <li>防風防潑水外套（海邊、藍山風大）</li>
+      <li>長袖上衣 / 毛衣 3–4 件</li>
+      <li>發熱衣 / 衛生衣（內搭保暖）</li>
+      <li>長褲 / 牛仔褲 2–3 件</li>
+      <li>圍巾、毛帽、手套</li>
+      <li>好走的鞋（步道、走很多路）</li>
+      <li>襪子（多帶幾雙厚的）</li>
+      <li>新加坡用：薄短袖 / 透氣衣（當地炎熱潮濕）</li>
+      <li>睡衣、內衣褲</li>
+      <li>輕便雨具 / 折疊傘</li>
+      <li>正式一點的服裝（歌劇院看劇）</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>💊 盥洗 & 醫藥</h3>
+    <ul class="check" data-g="health">
+      <li>個人藥品 / 慢性病藥（附英文藥單）</li>
+      <li>感冒藥、腸胃藥、止痛藥、OK 繃</li>
+      <li>保養品 / 護唇膏 / 乳液（澳洲乾冷）</li>
+      <li>防曬乳（紫外線強）</li>
+      <li>牙刷牙膏、洗髮沐浴（部分飯店不提供）</li>
+      <li>女性用品</li>
+      <li>口罩、濕紙巾、酒精</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>🎒 隨身 & 其他</h3>
+    <ul class="check" data-g="misc">
+      <li>輕便後背包 / 斜背包（防扒）</li>
+      <li>保溫瓶 / 水壺</li>
+      <li>環保購物袋（裝伴手禮）</li>
+      <li>太陽眼鏡</li>
+      <li>行李秤（回程怕超重）</li>
+      <li>夾鏈袋 / 收納袋</li>
+      <li>零食 / 飛機上小點心</li>
+      <li>頸枕、眼罩（長程飛行）</li>
+    </ul>
+  </div>
+
+  <div class="note"><b>提醒：</b>液體（含化妝水、防曬）超過 100ml 須<b>托運</b>；行動電源、鋰電池一律<b>手提</b>。澳洲入境<b>不可攜帶</b>肉類、生鮮蔬果、蜂蜜、種子等，務必申報。</div>
 </section>
 </div>
 
@@ -591,6 +693,19 @@ days.forEach((d,i)=>{
   el.querySelector('.day-head').addEventListener('click',()=>el.classList.toggle('open'));
   if(i===0)el.classList.add('open');
   list.appendChild(el);
+});
+
+// 行前清單：可勾選 + 記住狀態
+document.querySelectorAll('ul.check').forEach(ul=>{
+  const g=ul.dataset.g;
+  ul.querySelectorAll('li').forEach((li,idx)=>{
+    const key='pack_'+g+'_'+idx;
+    if(localStorage.getItem(key)==='1')li.classList.add('done');
+    li.addEventListener('click',()=>{
+      li.classList.toggle('done');
+      localStorage.setItem(key,li.classList.contains('done')?'1':'0');
+    });
+  });
 });
 </script>
 </body>
